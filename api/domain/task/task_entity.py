@@ -17,7 +17,7 @@ class Task(BaseEntity):
     def title(self):
        
         return self._get_String(self.__title, "Title")
-
+    
     @property
     def description(self):
 

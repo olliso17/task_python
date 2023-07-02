@@ -11,6 +11,25 @@ class BaseEntity():
         self._isActive = True
         self._deletedAt = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
         
+    @property
+    def id(self):
+        return self._get_String(self._id, "Id")
+    
+    @property
+    def createdAt(self):
+        return self._get_String(self._createdAt, "Date created")
+    @property
+    def updatedAt(self):
+        return self._get_String(self._updatedAt, "Date updated")
+    
+    @property
+    def isActive(self):
+        return self._isActive
+    
+    @property
+    def deletedAt(self):
+        return self._get_String(self._deletedAt, "Date deleted")
+    
     def _get_String(self, value:str, name:str)->str:
       
         if regex.match(value) is None:
