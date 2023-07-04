@@ -84,5 +84,5 @@ class TestTodoList:
     #     todoList.tasks.append(task)
     #     todoList.tasks.append(task1)
     #     with pytest.raises(ValueError, match=r"Task already exists"):
-    #         todoList.tasks.append(task)
+    #         todoList.tasks.append(task1)
                      

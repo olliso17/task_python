@@ -1,5 +1,3 @@
-
-
 from api.domain.base.base import BaseEntity
 
 
