@@ -9,10 +9,10 @@ class CreateTodoListUsecase:
         self.todo_list_repository = TodoListRepositoryInterface
 
     def execute(self, input: InputCreateTodoListDto):
-            self.name =input.name
-            self.typeTask = input.typeTask
-            self.userId = input.userId
-        todo_list_repository = self.todo_list_repository.add(input)
-        output: OutputCreateTodoListDto = {
-            id: todo_list_repository..id
-        }
+        self.name = input.name
+        self.typeTask = input.typeTask
+        self.userId = input.userId
+        # todo_list_repository = self.todo_list_repository.add(input)
+        # output: OutputCreateTodoListDto = {
+        #     id: todo_list_repository..id
+        # }
