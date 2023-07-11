@@ -1,7 +1,8 @@
 import uuid
 from datetime import datetime
 from api.util.regex import regex
-
+from Cryptodome.Cipher import AES
+from Cryptodome.Util import Padding
 
 class BaseEntity():
     def __init__(self):
@@ -35,3 +36,19 @@ class BaseEntity():
         if regex.match(value) is None:
             raise ValueError(f'{name} is required')
         return value
+    
+    def encrypt(self, value:str):
+        key =b"H" * 32
+        IV = b"H" * 16
+        encryptor = AES.new(key, AES.MODE_CBC, IV)
+        padded_value = Padding.pad(value, 16)
+        encrypted_value = encryptor.encrypt(padded_value)
+        return encrypted_value
+    
+    def decrypt(self, value:str):
+        key =b"H" * 32
+        IV = b"H" * 16
+        decryptor = AES.new(key, AES.MODE_CBC, IV)
+        decrypted_padded_value = decryptor.decrypt(value)
+        decrypted_value = Padding.unpad(decrypted_padded_value, 16)
+        return decrypted_value
